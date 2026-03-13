@@ -1,4 +1,4 @@
-﻿# AR with Planar Homographies & Image Classification
+# AR with Planar Homographies & Image Classification
 
 A computer vision pipeline that builds an Augmented Reality application using planar homographies, and a binary image classifier using handcrafted features  all from scratch using Python, OpenCV, and scikit-learn.
 
@@ -17,62 +17,63 @@ A traditional machine learning pipeline that classifies images as **face** or **
 ## Tech Stack
 
 - **Python**
-- **OpenCV**  image processing, warping, feature detection
-- **scikit-image**  FAST detector, BRIEF descriptor
-- **scikit-learn**  Random Forest classifier, evaluation metrics
-- **NumPy**  matrix operations, SVD
-- **SciPy**  image rotation
-- **Matplotlib**  visualizations
+- **OpenCV** - image processing, warping, feature detection
+- **scikit-image** - FAST detector, BRIEF descriptor
+- **scikit-learn** - Random Forest classifier, evaluation metrics
+- **NumPy** - matrix operations, SVD
+- **SciPy** - image rotation
+- **Matplotlib** - visualizations
 
 ---
 
 ## Project Structure
-\\\
- code/
-    matchPics.py           # FAST + BRIEF feature matching
-    planarH.py             # Homography: DLT, normalization, RANSAC
-    HarryPotterize.py      # Image overlay using homography
-    ar.py                  # Full AR video pipeline
-    briefRotTest.py        # BRIEF rotation sensitivity analysis
-    classify.py            # Full classification pipeline
-    loadVid.py             # Video loader
-    helper.py              # FAST + BRIEF helper functions
- results/
-    ar.avi                 # AR output video
-    dataset_grid.png       # Dataset samples
-    augmentation_examples.png
-    confusion_matrix.png
- README.md
-\\\
+
+`
+code/
+ matchPics.py           (FAST + BRIEF feature matching)
+ planarH.py             (Homography: DLT, normalization, RANSAC)
+ HarryPotterize.py      (Image overlay using homography)
+ ar.py                  (Full AR video pipeline)
+ briefRotTest.py        (BRIEF rotation sensitivity analysis)
+ classify.py            (Full classification pipeline)
+ loadVid.py             (Video loader)
+ helper.py              (FAST + BRIEF helper functions)
+
+results/
+ ar.avi                 (AR output video)
+ dataset_grid.png       (Dataset samples)
+ augmentation_examples.png
+ confusion_matrix.png
+`
 
 ---
 
 ## Getting Started
-\\\ash
+
+Install dependencies:
+`
 pip install numpy opencv-python scikit-image scikit-learn scipy matplotlib
-\\\
+`
 
 ### Run the AR application
-\\\ash
+`
 python ar.py
-# output saved to results/ar.avi
-\\\
+`
 
 ### Run the image classifier
-\\\ash
+`
 python classify.py
-# output saved to results/
-\\\
+`
 
 ### Test feature matching
-\\\ash
+`
 python HarryPotterize.py
-\\\
+`
 
 ### Analyse BRIEF under rotation
-\\\ash
+`
 python briefRotTest.py
-\\\
+`
 
 ---
 
@@ -86,7 +87,7 @@ python briefRotTest.py
 5. Warp and composite the overlay image
 
 ### Classification Pipeline
-1. Load images and resize to 256256
+1. Load images and resize to 256x256
 2. Apply data augmentation (brightness + horizontal flip)
 3. Extract FAST keypoints and BRIEF descriptors per image
 4. Mean-pool descriptors into a fixed 256-dimensional vector
@@ -97,10 +98,10 @@ python briefRotTest.py
 
 ## Results
 
-| | |
-|---|---|
+| Metric | Value |
+|--------|-------|
 | AR tracking | Stable across translation in video frames |
-| Classification accuracy | **96.43%** (with augmentation) |
+| Classification accuracy | 96.43% (with augmentation) |
 | Without augmentation | 80.00% |
 | Precision | 1.0000 |
 | Recall | 0.9286 |
@@ -109,11 +110,11 @@ python briefRotTest.py
 
 ## Interesting findings
 
-- **BRIEF is not rotation invariant**  match count drops sharply beyond 20 of rotation and only recovers near 360
-- **Background clutter hurts classification**  a full-body photo was misclassified as no-face because background corners dominated the mean-pooled descriptor; cropping to the face fixed it
-- **Augmentation matters**  tripling the dataset with brightness and flip augmentation improved accuracy from 80% to 96.43%
+- **BRIEF is not rotation invariant** - match count drops sharply beyond 20 degrees of rotation and only recovers near 360 degrees
+- **Background clutter hurts classification** - a full-body photo was misclassified as no-face because background corners dominated the mean-pooled descriptor; cropping to the face fixed it
+- **Augmentation matters** - tripling the dataset with brightness and flip augmentation improved accuracy from 80% to 96.43%
 
 ---
 
 ## Author
-**jmpuhwez**  CMU-Africa, 2026
+**jmpuhwez** - CMU-Africa, 2026
