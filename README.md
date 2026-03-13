@@ -27,7 +27,7 @@ A traditional machine learning pipeline that classifies images as **face** or **
 ---
 
 ## Project Structure
-`
+\\\
  code/
     matchPics.py           # FAST + BRIEF feature matching
     planarH.py             # Homography: DLT, normalization, RANSAC
@@ -43,36 +43,36 @@ A traditional machine learning pipeline that classifies images as **face** or **
     augmentation_examples.png
     confusion_matrix.png
  README.md
-`
+\\\
 
 ---
 
 ## Getting Started
-`ash
+\\\ash
 pip install numpy opencv-python scikit-image scikit-learn scipy matplotlib
-`
+\\\
 
 ### Run the AR application
-`ash
+\\\ash
 python ar.py
 # output saved to results/ar.avi
-`
+\\\
 
 ### Run the image classifier
-`ash
+\\\ash
 python classify.py
 # output saved to results/
-`
+\\\
 
 ### Test feature matching
-`ash
+\\\ash
 python HarryPotterize.py
-`
+\\\
 
 ### Analyse BRIEF under rotation
-`ash
+\\\ash
 python briefRotTest.py
-`
+\\\
 
 ---
 
